@@ -220,9 +220,15 @@ function drawTarget(i)
   }
   // draw a direction line
   // line();
-  let curr_trial = getTargetBounds(trials[current_trial-1]);
-  let next_trial = getTargetBounds(trials[current_trial]);
+  let prev_trial = getTargetBounds(trials[current_trial-1]);
+  let curr_trial = getTargetBounds(trials[current_trial]);
+  let next_trial = getTargetBounds(trials[current_trial+1]);
+
+  line(prev_trial.x, prev_trial.y, curr_trial.x, curr_trial.y );
+  strokeWeight(1);
+  stroke(255, 255, 230);
   line(curr_trial.x, curr_trial.y, next_trial.x, next_trial.y );
+  
   // Draws the target
   //fill(color(128,49,48));        
   //circle(target.x, target.y, target.w);
