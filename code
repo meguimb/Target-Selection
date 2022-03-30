@@ -218,7 +218,11 @@ function drawTarget(i)
     fill(color(119,119,119));
     circle(target.x, target.y, target.w);
   }
-
+  // draw a direction line
+  // line();
+  let curr_trial = getTargetBounds(trials[current_trial-1]);
+  let next_trial = getTargetBounds(trials[current_trial]);
+  line(curr_trial.x, curr_trial.y, next_trial.x, next_trial.y );
   // Draws the target
   //fill(color(128,49,48));        
   //circle(target.x, target.y, target.w);
