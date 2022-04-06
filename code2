@@ -205,6 +205,10 @@ function drawTarget(i)
     // Remember you are allowed to access targets (i-1) and (i+1)
     // if this is the target the user should be trying to select
     //
+    if (trials[current_trial] === trials[current_trial + 1]) {
+      fill(0)
+      text('2x', target.x, target.y);
+    }
   }
   else if (trials[current_trial + 1] === i) {
     noStroke();
