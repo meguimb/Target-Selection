@@ -87,12 +87,12 @@ function drawArrow(base, vec, myColor) {
   stroke(myColor);
   strokeWeight(3);
   fill(myColor);
-  //translate(base.x, base.y);
   line(base.x, base.y, vec.x, vec.y);
-  let dir = createVector(base, vec);
+  let dir = vec.copy();
+  dir.sub(base);
   rotate(vec.heading());
   let arrowSize = 7;
-  translate(vec.mag() - arrowSize, 0);
+  translate(vec.mag(), 0);
   rotate(2*PI - vec.heading());
   rotate(dir.heading());
   triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);
@@ -252,10 +252,8 @@ function drawTarget(i)
   if (current_trial != 0){
     drawArrow(prev_trial, curr_trial, "yellow");
   }
-  // let vec1 = line(prev_trial.x, prev_trial.y, curr_trial.x, curr_trial.y);
-  // drawArrow(curr_trial, vec1, "yellow");
+  
   strokeWeight(1);
-  // let vec2 = line(curr_trial.x, curr_trial.y, next_trial.x, next_trial.y );
   if (trials[current_trial]==trials[current_trial+1]){
     stroke(255,255,0);
     fill(255, 255, 0);
@@ -265,10 +263,6 @@ function drawTarget(i)
   if (current_trial != 53){
     drawArrow(curr_trial, next_trial, "white");
   }
-  
-  // Draws the target
-  //fill(color(128,49,48));        
-  //circle(target.x, target.y, target.w);
 }
 
 
