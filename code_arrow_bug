@@ -248,14 +248,23 @@ function drawTarget(i)
   let prev_trial = createVector(getTargetBounds(trials[current_trial-1]).x, getTargetBounds(trials[current_trial-1]).y);
   let curr_trial = createVector(getTargetBounds(trials[current_trial]).x, getTargetBounds(trials[current_trial]).y);
   let next_trial = createVector(getTargetBounds(trials[current_trial+1]).x, getTargetBounds(trials[current_trial+1]).y);
-
-  drawArrow(prev_trial, curr_trial, "yellow");
+  print(current_trial);
+  if (current_trial != 0){
+    drawArrow(prev_trial, curr_trial, "yellow");
+  }
   // let vec1 = line(prev_trial.x, prev_trial.y, curr_trial.x, curr_trial.y);
   // drawArrow(curr_trial, vec1, "yellow");
   strokeWeight(1);
-  stroke(255, 255, 230);
   // let vec2 = line(curr_trial.x, curr_trial.y, next_trial.x, next_trial.y );
-  drawArrow(curr_trial, next_trial, "white");
+  if (trials[current_trial]==trials[current_trial+1]){
+    stroke(255,255,0);
+    fill(255, 255, 0);
+    text('2x', getTargetBounds(trials[current_trial]).x-3, getTargetBounds(trials[current_trial]).y-3);
+  }
+  stroke(255, 255, 230);
+  if (current_trial != 53){
+    drawArrow(curr_trial, next_trial, "white");
+  }
   
   // Draws the target
   //fill(color(128,49,48));        
