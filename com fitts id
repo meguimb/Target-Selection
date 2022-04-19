@@ -155,7 +155,7 @@ function printAndSavePerformance()
   
   textAlign(RIGHT);
   for(; i < (trials.length); i++) {
-    text("Target " + i + ": " + fitts_IDs[i].toFixed(3), width-400, 20+15*(i-trials.length/2));
+    text("Target " + i + ": " + fitts_IDs[i].toFixed(3), width-400, 260+15*(i-trials.length/2));
   } 
   // Print Fitts IDS (one per target, -1 if failed selection, optional)
   // 
