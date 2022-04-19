@@ -89,14 +89,15 @@ function draw()
     let y = map(mouseY, inputArea.y, inputArea.y + inputArea.h, 0, height)
 
     fill(color(255,255,255));
-    circle(x, y, 0.5 * PPCM);
+    circle(x, y, 0.4 * PPCM);
     
     sx = LEFT_PADDING + parseInt((x-LEFT_PADDING)/(TARGET_SIZE + TARGET_PADDING))*(TARGET_SIZE + TARGET_PADDING) + (TARGET_SIZE + TARGET_PADDING)/2;
     
     sy = TOP_PADDING + parseInt((y-TOP_PADDING)/(TARGET_SIZE + TARGET_PADDING))*(TARGET_SIZE + TARGET_PADDING) + (TARGET_SIZE + TARGET_PADDING)/2;
     
     // Draw snapping cursor
-    fill(color(255,255,255));
+    stroke(color(255,255,255))
+    fill(color(255,255,255, 0.5));
     circle(sx, sy, 0.8 * PPCM);
   }
 }
@@ -315,12 +316,12 @@ function drawTarget(i)
   
   strokeWeight(1);
   if (trials[current_trial]==trials[current_trial+1]){
-    stroke(255,255,0);
+    stroke(255, 0, 0);
     fill(255, 255, 0);
     text('2x', getTargetBounds(trials[current_trial]).x-3, getTargetBounds(trials[current_trial]).y-3);
   }
   stroke(255, 255, 230);
-  if (current_trial != 53){
+  if (current_trial != 53 && trials[current_trial]!=trials[current_trial+1]) {
     drawArrow(curr_trial, next_trial, "white");
   }
 }
