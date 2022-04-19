@@ -320,7 +320,7 @@ function drawTarget(i)
     stroke(255, 0, 0);
     fill(255, 255, 0);
     text('2x', getTargetBounds(trials[current_trial]).x-3, getTargetBounds(trials[current_trial]).y-3);
-    textFont("Arial", 28);
+    textFont("Arial", 18);
   }
   stroke(255, 255, 230);
   if (current_trial != 53 && trials[current_trial]!=trials[current_trial+1]) {
